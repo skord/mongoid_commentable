@@ -1,6 +1,6 @@
 <% @model.comments_list.each do |comment| %>
   <p>
-  <% if comment.deleted %>
+  <% if comment.deleted? %>
   <strong>DELETED</strong>
 <% end %>
   <%= comment.text%>
