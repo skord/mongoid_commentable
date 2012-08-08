@@ -58,7 +58,11 @@ class CommentsController < ActionController::Base
   end
 
   def get_model
-    @model = classname.find(params[model_id.to_sym])
+    begin
+      @model = classname.find(params[model_id.to_sym]) 
+    rescue
+       @model = classname.find_by_slug_or_id(params[model_id.to_sym])
+    end
   end
   
   def get_comment
